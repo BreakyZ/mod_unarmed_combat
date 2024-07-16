@@ -1,4 +1,4 @@
-foreach (marketplace in ["marketplace_building", "marketplace_building_southern"])
+foreach (marketplace in ["marketplace_building", "marketplace_oriental_building"])
 {
 	::ModUnarmedCombat.HooksMod.hook("scripts/entity/world/settlements/buildings/" + marketplace, function ( q ) {
 

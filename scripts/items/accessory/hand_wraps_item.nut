@@ -57,6 +57,12 @@ this.hand_wraps_item <- this.inherit("scripts/items/accessory/accessory", {
 			type = "text",
 			icon = "ui/icons/damage_dealt.png",
 			text = "Deal [color=" + this.Const.UI.Color.PositiveValue + "]+2-6[/color] more damage on unarmed attacks."
+		},
+		{
+			id = 15,
+			type = "text",
+			icon = "ui/icons/damage_dealt.png",
+			text = "Deal [color=" + this.Const.UI.Color.PositiveValue + "]10%[/color] more damage (multiplicative) on [color=#400080]Choke[/color]."
 		});
 		return result;
 	}
@@ -67,6 +73,7 @@ this.hand_wraps_item <- this.inherit("scripts/items/accessory/accessory", {
 		{
 			_properties.DamageRegularMin += 2;
 			_properties.DamageRegularMax += 6;
+			_properties.DamageTotalMult *= 1.1;
 		}
 	}
 
