@@ -24,7 +24,7 @@
 				_properties.DamageDirectMult = 1.5;
 			}
 
-			_properties.DamageRegularMin += this.Math.floor(0.3 * damage);
+			_properties.DamageRegularMin += this.Math.floor(damage);
 			_properties.DamageRegularMax += this.Math.floor(damage);
 		}
 

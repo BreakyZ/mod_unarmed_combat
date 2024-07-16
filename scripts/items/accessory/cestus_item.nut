@@ -89,6 +89,6 @@ this.cestus_item <- this.inherit("scripts/items/accessory/accessory", {
 
 	function playInventorySound( _eventType )
 	{
-		this.Sound.play("sounds/armor_leather_impact_01.wav", this.Const.Sound.Volume.Inventory);
+		this.Sound.play("sounds/combat/armor_leather_impact_01.wav", this.Const.Sound.Volume.Inventory);
 	}
 });
