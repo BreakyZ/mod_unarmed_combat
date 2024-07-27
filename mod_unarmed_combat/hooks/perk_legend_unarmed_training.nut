@@ -21,7 +21,7 @@
 			if (this.getContainer().hasSkill("perk.crGrandslam"))
 			{
 				damage = damage * 1.5;
-				_properties.DamageDirectMult = 1.5;
+				_properties.DamageDirectMult *= 1.5;
 			}
 
 			_properties.DamageRegularMin += this.Math.floor(damage);
@@ -37,7 +37,7 @@
 
 	q.onAdded <- function()
 	{
-		if (!this.getContainer().hasSkill("actives.legend_tackle"))
+		if (!this.getContainer().hasSkill("actives.legend_tackle") && this.getContainer().getActor().isPlayerControlled())
 		{
 			this.getContainer().add(this.new("scripts/skills/actives/legend_tackle"));
 		}

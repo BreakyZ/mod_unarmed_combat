@@ -1,7 +1,7 @@
 ::ModUnarmedCombat.HooksMod.hook("scripts/skills/perks/perk_mastery_fist", function ( q ) {
 	q.onAdded <- function()
 	{
-		if (!this.getContainer().hasSkill("actives.legend_kick"))
+		if (!this.getContainer().hasSkill("actives.legend_kick") && this.getContainer().getActor().isPlayerControlled())
 		{
 			this.getContainer().add(this.new("scripts/skills/actives/legend_kick"));
 		}

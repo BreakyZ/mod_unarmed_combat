@@ -1,7 +1,7 @@
 ::ModUnarmedCombat <- {
 	ID = "mod_unarmed_combat",
 	Name = "Unarmed Combat",
-	Version = "1.0.3"
+	Version = "1.0.5.1"
 };
 
 ::ModUnarmedCombat.HooksMod <- ::Hooks.register(::ModUnarmedCombat.ID, ::ModUnarmedCombat.Version, ::ModUnarmedCombat.Name);
@@ -25,6 +25,7 @@
 
 	::ModUnarmedCombat.Mod.Registry.addModSource(::MSU.System.Registry.ModSourceDomain.GitHub, "https://github.com/BreakyZ/mod_unarmed_combat");
 	::ModUnarmedCombat.Mod.Registry.setUpdateSource(::MSU.System.Registry.ModSourceDomain.GitHub);
+	// if (!("Is_SSU_Exist" in this.getroottable())) ::Is_SSU_Exist <- ::mods_getRegisteredMod("mod_sellswords") != null;
 
 	// load hook files
 	::include("mod_unarmed_combat/load.nut");
