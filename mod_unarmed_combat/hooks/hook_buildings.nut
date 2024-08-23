@@ -7,9 +7,9 @@ foreach (marketplace in ["marketplace_building", "marketplace_oriental_building"
 			_list.push({
 				R = 60,
 				P = 1.0,
-				S = "accessory/hand_wraps_item"
+				S = "accessory/legend_hand_wraps_item"
 			});
-			__original( _list, _stash, _priceMult, _allowDamagedEquipment = false );
+			__original( _list, _stash, _priceMult );
 		}
 	});
 }
@@ -20,10 +20,10 @@ foreach (marketplace in ["marketplace_building", "marketplace_oriental_building"
 		_list.push({
 				R = 70,
 				P = 1.0,
-				S = "accessory/cestus_item"
+				S = "accessory/legend_cestus_item"
 		});
 
-		__original( _list, _stash, _priceMult, _allowDamagedEquipment = false );
+		__original( _list, _stash, _priceMult );
 	}
 
 });

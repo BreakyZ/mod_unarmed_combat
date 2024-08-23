@@ -1,17 +1,19 @@
-this.hand_wraps_item <- this.inherit("scripts/items/accessory/accessory", {
-	m = {},
+this.legend_cestus_item <- this.inherit("scripts/items/accessory/accessory", {
+	m = {
+		alreadyEquipped = true
+	},
 	function create()
 	{
 		this.accessory.create();
-		this.m.ID = "accessory.hand_wraps";
-		this.m.Name = "Pugilist Hand Wraps";
-		this.m.Description = "Simple cloth wrapped around the hands, protects the wearer from the impact of his own punches and allows them to hit harder.";
+		this.m.ID = "accessory.legend_cestus";
+		this.m.Name = "Gladiator\'s Cestus";
+		this.m.Description = "A pair of gloves, made from studded leather straps, enclosing and protecting a fighter\'s lower arm and fist. Used to deal more powerful punches.";
 		this.m.SlotType = this.Const.ItemSlot.Accessory;
 		this.m.IsDroppedAsLoot = true;
 		this.m.ShowOnCharacter = false;
 		this.m.IconLarge = "";
-		this.m.Icon = "accessory/hand_wraps.png";
-		this.m.Value = 35;
+		this.m.Icon = "accessory/cestus.png";
+		this.m.Value = 2300;
 	}
 
 	function getTooltip()
@@ -58,7 +60,13 @@ this.hand_wraps_item <- this.inherit("scripts/items/accessory/accessory", {
 				id = 15,
 				type = "text",
 				icon = "ui/icons/damage_dealt.png",
-				text = "Deal [color=" + this.Const.UI.Color.PositiveValue + "]+2-6[/color] more damage on unarmed attacks."
+				text = "Deal [color=" + this.Const.UI.Color.PositiveValue + "]+6-12[/color] more damage on unarmed attacks."
+			},
+			{
+				id = 15,
+				type = "text",
+				icon = "ui/icons/armor_damage.png",
+				text = "Deal [color=" + this.Const.UI.Color.PositiveValue + "]+20%[/color] more armor damage on unarmed attacks."
 			},
 			{
 				id = 15,
@@ -74,14 +82,34 @@ this.hand_wraps_item <- this.inherit("scripts/items/accessory/accessory", {
 	{
 		if (_skill.getID() == "actives.hand_to_hand")
 		{
-			_properties.DamageRegularMin += 2;
-			_properties.DamageRegularMax += 6;
+			_properties.DamageRegularMin += 6;
+			_properties.DamageRegularMax += 12;
+			_properties.DamageArmorMult = 0.2;
+		}
+		if (_skill.getID() == "actives.legend_choke")
+		{
 			_properties.DamageTotalMult *= 1.1;
 		}
 	}
 
+	function onPutIntoBag()
+	{
+		if (this.m.alreadyEquipped)
+			return;
+		this.onEquip();
+	}
+
+	function onEquip()
+	{
+		if (this.m.alreadyEquipped)
+			return;
+			
+		this.item.onEquip();
+		this.m.alreadyEquipped = true;
+	}
+
 	function playInventorySound( _eventType )
 	{
-		this.Sound.play("sounds/cloth_01.wav", this.Const.Sound.Volume.Inventory);
+		this.Sound.play("sounds/combat/armor_leather_impact_01.wav", this.Const.Sound.Volume.Inventory);
 	}
 });
