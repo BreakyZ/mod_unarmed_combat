@@ -1,6 +1,6 @@
 this.legend_hand_wraps_item <- this.inherit("scripts/items/accessory/accessory", {
 	m = {
-		alreadyEquipped = true
+		isBrawlerItem = true
 	},
 	function create()
 	{
@@ -72,34 +72,13 @@ this.legend_hand_wraps_item <- this.inherit("scripts/items/accessory/accessory",
 		return result;
 	}
 
-	function onAnySkillUsed(  _skill, _targetEntity, _properties )
-	{
-		if (_skill.getID() == "actives.hand_to_hand")
-		{
-			_properties.DamageRegularMin += 2;
-			_properties.DamageRegularMax += 6;
-			_properties.DamageTotalMult *= 1.1;
-		}
-	}
-
 	function onPutIntoBag()
 	{
-		if (this.m.alreadyEquipped)
-			return;
 		this.onEquip();
-	}
-
-	function onEquip()
-	{
-		if (this.m.alreadyEquipped)
-			return;
-			
-		this.item.onEquip();
-		this.m.alreadyEquipped = true;
 	}
 
 	function playInventorySound( _eventType )
 	{
-		this.Sound.play("sounds/cloth_01.wav", this.Const.Sound.Volume.Inventory);
+		this.Sound.play("sounds/combat/armor_leather_impact_01.wav", this.Const.Sound.Volume.Inventory);
 	}
 });

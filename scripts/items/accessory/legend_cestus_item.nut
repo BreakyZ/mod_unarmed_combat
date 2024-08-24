@@ -1,6 +1,6 @@
 this.legend_cestus_item <- this.inherit("scripts/items/accessory/accessory", {
 	m = {
-		alreadyEquipped = true
+		isBrawlerItem = true
 	},
 	function create()
 	{
@@ -78,34 +78,9 @@ this.legend_cestus_item <- this.inherit("scripts/items/accessory/accessory", {
 		return result;
 	}
 
-	function onAnySkillUsed(  _skill, _targetEntity, _properties )
-	{
-		if (_skill.getID() == "actives.hand_to_hand")
-		{
-			_properties.DamageRegularMin += 6;
-			_properties.DamageRegularMax += 12;
-			_properties.DamageArmorMult = 0.2;
-		}
-		if (_skill.getID() == "actives.legend_choke")
-		{
-			_properties.DamageTotalMult *= 1.1;
-		}
-	}
-
 	function onPutIntoBag()
 	{
-		if (this.m.alreadyEquipped)
-			return;
 		this.onEquip();
-	}
-
-	function onEquip()
-	{
-		if (this.m.alreadyEquipped)
-			return;
-			
-		this.item.onEquip();
-		this.m.alreadyEquipped = true;
 	}
 
 	function playInventorySound( _eventType )
