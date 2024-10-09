@@ -20,12 +20,12 @@
 		{
 			_properties.DamageRegularMin += 6;
 			_properties.DamageRegularMax += 12;
-			_properties.DamageArmorMult = 0.2;
+			_properties.DamageArmorMult *= 0.2;
 		}
 		else if (hasWraps)
 		{
 			_properties.DamageRegularMin += 2;
 			_properties.DamageRegularMax += 6;
 		}
-	};
+	}
 });

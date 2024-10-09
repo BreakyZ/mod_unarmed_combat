@@ -1,7 +1,7 @@
 ::ModUnarmedCombat <- {
 	ID = "mod_unarmed_combat",
 	Name = "Unarmed Combat",
-	Version = "1.1.3"
+	Version = "1.1.5"
 };
 
 ::ModUnarmedCombat.HooksMod <- ::Hooks.register(::ModUnarmedCombat.ID, ::ModUnarmedCombat.Version, ::ModUnarmedCombat.Name);
