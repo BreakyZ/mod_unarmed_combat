@@ -9,7 +9,7 @@ foreach (marketplace in ["marketplace_building", "marketplace_oriental_building"
 				P = 1.0,
 				S = "accessory/legend_hand_wraps_item"
 			});
-			__original( _list, _stash, _priceMult );
+			__original( _list, _stash, _priceMult, _allowDamagedEquipment = true );
 		}
 	});
 }
@@ -23,7 +23,7 @@ foreach (marketplace in ["marketplace_building", "marketplace_oriental_building"
 				S = "accessory/legend_cestus_item"
 		});
 
-		__original( _list, _stash, _priceMult );
+		__original( _list, _stash, _priceMult, _allowDamagedEquipment = false );
 	}
 
 });
